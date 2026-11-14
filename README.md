@@ -6,7 +6,7 @@ INVENTHOR's privacy-safe knowledge filter, anonymization gate, evidence scoring 
 
 `src/Inventhor.KnowledgeFilter/` contains a pure .NET 10, **read-only metadata evaluator**. It does not score truth by source authority, fetch pages, call models, alter prompts, change permissions, or send any data to third parties.
 
-The evaluator distinguishes source count from *original independent reporting groups*, preserves opposing attributed statements, reports insufficient coverage, and treats state/official claims as evidence rather than final authority. An unknown origin never counts as an independent source. Country/language diversity is descriptive rather than proof.
+The evaluator distinguishes source count from *original independent reporting groups*, preserves opposing attributed statements, reports insufficient coverage, and treats state/official claims as evidence rather than final authority. The separate ResearchBreadthPlan specifies seven independent discovery lanes (including counterevidence, local voices and attributed official records), without making network calls or granting any source a veto. An unknown origin never counts as an independent source. Country/language diversity is descriptive rather than proof.
 
 Run deterministic self-tests:
 

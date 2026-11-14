@@ -104,4 +104,16 @@ Check(capped.CitedSources == 0
     && capped.Warnings.Contains("INPUT_LIMIT_EXCEEDED"),
     "Oversized batch fails closed without partial evidence claims");
 
+var lanes = ResearchBreadthPlan.CoreLanes();
+Check(lanes.Count == 7 && lanes.Select(x => x.Id).Distinct().Count() == 7,
+    "Seven distinct research discovery routes");
+Check(lanes.Any(x => x.Id == "official-attributed-records")
+    && lanes.Any(x => x.Id == "contrary-evidence"),
+    "Official records and counterevidence both sought");
+Check(lanes.All(x => !x.IsTrustedByDefault && !x.MaySuppressContraryEvidence),
+    "No source lane has automatic authority or suppression privilege");
+Check(lanes.Any(x => x.Id == "international-language-check")
+    && lanes.Any(x => x.Id == "local-affected-parties"),
+    "Cross-language and local-affected perspectives included");
+
 Console.WriteLine($"EVIDENCE_DIVERSITY_SELFTEST_PASS={passed}");
